@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -6,7 +7,7 @@ const Expense = require('./model/expense');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb+srv://edwardoneon:CTezfeYmx2Fp6Aj1@cluster0.xigcuxi.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('successfully connected to database.')
   }).catch(err => {
